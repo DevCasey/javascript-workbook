@@ -21,21 +21,30 @@ function printStacks() {
 
 function movePiece() {
   // Your code here
+  
+
 
 }
 
-function isLegal() {
+function isLegal(startingStack, endingStack) {
   // Your code here
-
+  let starting = stacks[startingStack].length - 1;
+  let ending = stacks[endingStack].length - 1;
 }
 
 function checkForWin() {
   // Your code here
-
+  if (stacks.b.length == 4) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code here
+  let endPiece = stacks[startStack].pop();
+  stacks[endStack].push(endPiece);
 
 }
 
