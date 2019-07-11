@@ -49,9 +49,9 @@ function checkForWin() {
   }
 }
 
-function towersOfHanoi(startStack, endStack) {
+function towersOfHanoi(startingStack, endingStack) {
   // Your code here
-  
+  isLegal(startingStack, endingStack);
 
 }
 
