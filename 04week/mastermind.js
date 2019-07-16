@@ -65,6 +65,9 @@ function mastermind(guess) {
     console.log('You guessed it!');
     return 'You guessed it!';
   } else if (guess !== solution) {
+    // return 'You guessed it!';
+    console.log('You guessed it!'.green);
+  } else {
     generateHint(guess);
   }
 }
