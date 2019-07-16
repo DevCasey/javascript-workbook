@@ -43,14 +43,13 @@ function generateHint(guess) {
    }
  }
 
- for (j = 0; j < splitString.length; j++) {
-  let targetIndex = splitString.includes(splitDif[j]);
-  if (targetIndex !== -1) {
-    correctLetters += 1;
-    correctLetterLocations[j] = null;
-    }
-  }
-  
+//  for (j = 0; j < solutionArray.length; j++) {
+//   let targetIndex = solutionArray.indexOf(guessArray[j]);
+//   if (targetIndex !== -1) {
+//     correctLetters += 1;
+//     correctLetterLocations[j] = null;
+//     }
+//   }
   console.log(`${correctLetterLocations}`.red);
   console.log(`${correctLetters}`.white);
 }
@@ -63,8 +62,9 @@ function generateHint(guess) {
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
   if (guess == solution) {
+    console.log('You guessed it!');
     return 'You guessed it!';
-  } else {
+  } else if (guess !== solution) {
     generateHint(guess);
   }
 }
