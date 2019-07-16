@@ -31,27 +31,27 @@ function getRandomInt(min, max) {
   // Takes in one argument, the user input.
 function generateHint(guess) {
   // Creating variables that split the solution array and guess array.
-  let solutionArray = guess.split('');
+  let solutionArray = solution.split('');
   let guessArray = guess.split('');
   let correctLetterLocations = 0;
   let correctLetters = 0;
 
  for (let i = 0; i < solutionArray.length; i++) {
-   if (solutionArray[i].includes(guessArray[i])) {
+   if (solutionArray[i] == guessArray[i]) {
      correctLetterLocations += 1;
-     correctLetterLocations[i] = null;
+     solutionArray[i] = null;
    }
  }
 
-//  for (j = 0; j < solutionArray.length; j++) {
-//   let targetIndex = solutionArray.indexOf(guessArray[j]);
-//   if (targetIndex !== -1) {
-//     correctLetters += 1;
-//     correctLetterLocations[j] = null;
-//     }
-//   }
-  console.log(`${correctLetterLocations}`.red);
-  console.log(`${correctLetters}`.white);
+ for (let j = 0; j < solutionArray.length; j++) {
+  let targetIndex = solutionArray.indexOf(guessArray[j]);
+  if (targetIndex !== -1) {
+    correctLetters += 1;
+    solutionArray[targetIndex] = null;
+    }
+  }
+  console.log(`${correctLetterLocations} - ${correctLetters}`);
+  return correctLetterLocations + '-' + correctLetters;
 }
 
 
@@ -62,13 +62,14 @@ function generateHint(guess) {
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
   if (guess == solution) {
-    console.log('You guessed it!');
+    // console.log('You guessed it!');
     return 'You guessed it!';
   } else if (guess !== solution) {
-    // return 'You guessed it!';
-    console.log('You guessed it!'.green);
-  } else {
     generateHint(guess);
+    // console.log('You did not guess it right');
+    return 'You did not guess it';
+  } else {
+    // generateHint(guess);
   }
 }
 
