@@ -44,7 +44,7 @@ function generateHint(guess) {
  }
 
  for (j = 0; j < splitString.length; j++) {
-  let targetIndex = splitString.includes(splitDif[j]);
+  let targetIndex = splitString.indexOf(splitDif[j]);
   if (targetIndex !== -1) {
     correctLetters += 1;
     correctLetterLocations[j] = null;
@@ -63,7 +63,8 @@ function generateHint(guess) {
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
   if (guess == solution) {
-    return 'You guessed it!';
+    // return 'You guessed it!';
+    console.log('You guessed it!'.green);
   } else {
     generateHint(guess);
   }
