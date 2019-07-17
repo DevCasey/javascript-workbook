@@ -38,15 +38,15 @@ function generateHint(guess) {
 
  for (let i = 0; i < solutionArray.length; i++) {
    if (solutionArray[i] == guessArray[i]) {
-     correctLetterLocations += 1;
+     correctLetterLocations++;
      solutionArray[i] = null;
    }
  }
 
  for (let j = 0; j < solutionArray.length; j++) {
   let targetIndex = solutionArray.indexOf(guessArray[j]);
-  if (targetIndex !== -1) {
-    correctLetters += 1;
+  if (targetIndex > -1) {
+    correctLetters++;
     solutionArray[targetIndex] = null;
     }
   }
@@ -61,6 +61,8 @@ function generateHint(guess) {
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
+
+
   if (guess == solution) {
     // console.log('You guessed it!');
     return 'You guessed it!';
