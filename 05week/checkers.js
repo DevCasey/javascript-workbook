@@ -55,7 +55,8 @@ class Board {
         // if the location is "truthy" (contains a checker piece, in this case)
         if (this.grid[row][column]) {
           // push the symbol of the check in that location into the array
-          rowOfCheckers.push(this.grid[row][column].symbol);
+          // rowOfCheckers.push(this.grid[row][column].symbol);
+          rowOfCheckers.push(this.grid[row][column])
         } else {
           // just push in a blank space
           rowOfCheckers.push(' ');
@@ -75,7 +76,11 @@ class Board {
           this.grid[row1][col1] = this.redPiece;
           this.checkers.push(this.redPiece);
         }
-      }
+        else if(col1 % 2 === 0 && row1 % 2 === 1) {
+          this.grid[row1][col1] = this.redPiece;
+          this.checkers.push(this.redPiece);
+        }
+      } 
     }
   }  
 }
