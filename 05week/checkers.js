@@ -1,4 +1,6 @@
 'use strict';
+
+var colors = require('colors');
 // Initial commit
 const assert = require('assert');
 const readline = require('readline');
@@ -8,13 +10,28 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+class Checker {
+  constructor(color) {
+    if (color == 'red') {
+      this.name = 'red';
+      this.symbol = 'r';
+    } else if (color == 'black') {
+      this.name = 'black';
+      this.symbol = 'b';
+    }
+  }
 }
+
+const redChecker = new Checker('red');
+const blackChecker = new Checker('black');
 
 class Board {
   constructor() {
     this.grid = []
+    this.checkers = [];
+    this.redPiece = 'R';
+    this.blackPiece = 'B';
+    this.playerTurn = this.blackPiece;
   }
   // method that creates an 8x8 array, filled with null values
   createGrid() {
@@ -51,9 +68,15 @@ class Board {
     }
     console.log(string);
   }
+   setCheckers() {
+     for(let row1 = 0; row1 < 3; row1++) {
+       for(let col1 = 0; col1 < 8)
+     }
+   }
+  }
 
-  // Your code here
-}
+
+
 
 class Game {
   constructor() {
@@ -61,9 +84,12 @@ class Game {
   }
   start() {
     this.board.createGrid();
+    this.board.setCheckers();
   }
 }
 
+
+// Do not modify this
 function getPrompt() {
   game.board.viewGrid();
   rl.question('which piece?: ', (whichPiece) => {
@@ -74,6 +100,7 @@ function getPrompt() {
   });
 }
 
+// Runs first
 const game = new Game();
 game.start();
 
