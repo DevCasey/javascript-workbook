@@ -68,12 +68,17 @@ class Board {
     }
     console.log(string);
   }
-   setCheckers() {
-     for(let row1 = 0; row1 < 3; row1++) {
-       for(let col1 = 0; col1 < 8)
-     }
-   }
-  }
+  initializeGrid() {
+    for(let row1 = 0; row1 < 3; row1 ++) {
+      for(let col1 = 0; col1 < 8; col1 ++) {
+        if(col1 % 2 === 1 && row1 % 2 === 0) {
+          this.grid[row1][col1] = this.redPiece;
+          this.checkers.push(this.redPiece);
+        }
+      }
+    }
+  }  
+}
 
 
 
@@ -84,7 +89,7 @@ class Game {
   }
   start() {
     this.board.createGrid();
-    this.board.setCheckers();
+    this.board.initializeGrid();
   }
 }
 
