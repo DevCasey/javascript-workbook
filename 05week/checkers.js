@@ -82,6 +82,18 @@ class Board {
         }
       } 
     }
+    for(let row2 = 5; row2 < 8; row2 ++) {
+      for(let col2 = 0; col2 < 8; col2 ++) {
+        if(col2 % 2 === 1 && row2 % 2 === 0) {
+          this.grid[row2][col2] = this.blackPiece;
+          this.checkers.push(this.redPiece);
+        }
+        else if(col2 % 2 === 0 && row2 % 2 === 1) {
+          this.grid[row2][col2] = this.blackPiece;
+          this.checkers.push(this.blackPiece);
+        }
+      }
+    }
   }  
 }
 
