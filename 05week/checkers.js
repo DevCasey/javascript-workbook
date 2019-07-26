@@ -11,19 +11,19 @@ const rl = readline.createInterface({
 
 
 class Checker {
-  constructor(color) {
-    if (color == 'red') {
-      this.name = 'red';
-      this.symbol = 'r';
-    } else if (color == 'black') {
-      this.name = 'black';
-      this.symbol = 'b';
-    }
-  }
+  // constructor(color) {
+  //   if (color == 'red') {
+  //     this.name = 'red';
+  //     this.symbol = 'r';
+  //   } else if (color == 'black') {
+  //     this.name = 'black';
+  //     this.symbol = 'b';
+  //   }
+  // }
 }
 
-const redChecker = new Checker('red');
-const blackChecker = new Checker('black');
+// const redChecker = new Checker('red');
+// const blackChecker = new Checker('black');
 
 class Board {
   constructor() {
@@ -97,6 +97,10 @@ class Board {
   }  
 }
 
+function isValidInput(whichPiece, toWhere) {
+  
+  
+}
 
 
 
