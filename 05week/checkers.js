@@ -11,19 +11,10 @@ const rl = readline.createInterface({
 
 
 class Checker {
-  // constructor(color) {
-  //   if (color == 'red') {
-  //     this.name = 'red';
-  //     this.symbol = 'r';
-  //   } else if (color == 'black') {
-  //     this.name = 'black';
-  //     this.symbol = 'b';
-  //   }
-  // }
+  
 }
 
-// const redChecker = new Checker('red');
-// const blackChecker = new Checker('black');
+
 
 class Board {
   constructor() {
@@ -94,12 +85,52 @@ class Board {
         }
       }
     }
-  }  
-}
+  }
 
-function isValidInput(whichPiece, toWhere) {
+  selectChecker()
+
+  moveChecker(whichPiece, toWhere) {
+    let start = whichPiece.split('');
+    let end = toWhere.split('');
+
+  }
+
+  isValidInput(whichPiece, toWhere) {
+    let start = whichPiece.split('');
+    let end = toWhere.split('');
+    let startX = start[0];
+    let startY = start[1];
+    let endX = end[0];
+    let endY = end[1];
+
+    const is07 = () => {
+      if (startX <= 7 && startX >= 0 && startY <= 7 && startY >= 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   
-  
+    const isOdd = () => {
+      if (startX + startY && endX + endY % 2 !== 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    const isEmpty = () => {
+      if (this.board.grid[endX][endY] === null) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    if (is07 && isOdd && isEmpty) {
+      return true;
+    }
+  }
+
 }
 
 
@@ -111,6 +142,7 @@ class Game {
   start() {
     this.board.createGrid();
     this.board.initializeGrid();
+
   }
 }
 
