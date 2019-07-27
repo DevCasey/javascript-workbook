@@ -87,11 +87,59 @@ class Board {
     }
   }
 
-  selectChecker()
+  selectChecker() {
 
-  moveChecker(whichPiece, toWhere) {
-    let start = whichPiece.split('');
-    let end = toWhere.split('');
+  }
+
+ 
+
+  // isValidInput(whichPiece, toWhere) {
+  //   let start = whichPiece.split('');
+  //   let end = toWhere.split('');
+  //   let startX = start[0];
+  //   let startY = start[1];
+  //   let endX = end[0];
+  //   let endY = end[1];
+
+  //   const is07 = () => {
+  //     if (startX <= 7 && startX >= 0 && startY <= 7 && startY >= 0) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   }
+  
+  //   const isOdd = () => {
+  //     if (startX + startY && endX + endY % 2 !== 0) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   }
+
+  //   const isEmpty = () => {
+  //     if (this.board.grid[endX][endY] === null) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   }
+  //   if (is07 && isOdd && isEmpty) {
+  //     return true;
+  //   }
+  // }
+
+}
+
+
+
+class Game {
+  constructor() {
+    this.board = new Board;
+  }
+  start() {
+    this.board.createGrid();
+    this.board.initializeGrid();
 
   }
 
@@ -130,20 +178,20 @@ class Board {
       return true;
     }
   }
+  
+  moveChecker(whichPiece, toWhere) {
+    // Splitting the string whichPiece and toWhere into an array
+    let start = whichPiece.split('');
+    let end = toWhere.split('');
+    let startX = start[0];
+    let startY = start[1];
+    let endX = end[0];
+    let endY = end[1];
+    
+    this.board.grid.push(endX, endY);
 
-}
-
-
-
-class Game {
-  constructor() {
-    this.board = new Board;
   }
-  start() {
-    this.board.createGrid();
-    this.board.initializeGrid();
-
-  }
+  
 }
 
 
