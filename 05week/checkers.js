@@ -181,14 +181,10 @@ class Game {
   
   moveChecker(whichPiece, toWhere) {
     // Splitting the string whichPiece and toWhere into an array
-    let start = whichPiece.split('');
-    let end = toWhere.split('');
-    let startX = start[0];
-    let startY = start[1];
-    let endX = end[0];
-    let endY = end[1];
+    this.board.grid[whichPiece[0]][whichPience[1]] = null;
+    this.board.grid[toWhere[0]][toWhere[1]] = playerTurn;
+    switchPlayer();
     
-    this.board.grid.push(endX, endY);
 
   }
   
