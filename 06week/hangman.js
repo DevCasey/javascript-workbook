@@ -128,8 +128,8 @@ let checkLetter = (guessedLetter) => {
       if (splitSolution[i].includes(splitLetter[j])) {
         let correctLetterIndex = splitSolution.indexOf(splitSolution[i]);
         newArr.splice(correctLetterIndex, 1, splitLetter[j]);
-        
         console.log(newArr);
+        continue;
       }
     }
   }
