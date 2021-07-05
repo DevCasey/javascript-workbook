@@ -19,23 +19,46 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+// Arguments that are getting passed in are the properties in the stacks object
+function movePiece(startingStack, endingStack) {
+  // endPiece is create to remove the last element in the array.
+  let endPiece = stacks[startingStack].pop();
+
+  // then endPiece is pushed into the second stack that is chosen.
+  stacks[endingStack].push(endPiece);
+
 
 }
 
-function isLegal() {
-  // Your code here
+function isLegal(startingStack, endingStack) {
+  // Variables are created to always grab the last element in the array.
+  let starting = stacks[startingStack].length - 1;
+  let ending = stacks[endingStack].length - 1;
 
+  // Conditional that checks if the stack the player wants to move to is empty or if the moving piece has a lower value than where it's getting placed.
+  if (stacks[endingStack].length == 0 || stacks[startingStack][starting] < stacks[endingStack][ending]) {
+    // If above is true, call the movePiece function.
+    movePiece(startingStack, endingStack);
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function checkForWin() {
   // Your code here
 
+  // Checks if the stack has all 4 pieces
+  if (stacks.b.length == 4) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-function towersOfHanoi(startStack, endStack) {
-  // Your code here
+function towersOfHanoi(startingStack, endingStack) {
+  // Calls the isLegal function and passes whatever arguements are passed in when the towersOfHanoi function is called. 
+  isLegal(startingStack, endingStack);
 
 }
 
